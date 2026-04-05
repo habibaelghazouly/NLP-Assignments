@@ -1,12 +1,12 @@
-import torch
+import numpy as np
 import pickle
 
-def load_embeddings_and_vocab(emb_path="embeddings.pt",
+def load_embeddings_and_vocab(emb_path="embeddings.npy",
                               word2idx_path="word2idx.pkl",
                               idx2word_path="idx2word.pkl",
                               device="cpu"):
     # Load embeddings
-    embeddings = torch.load(emb_path, map_location=device)
+    embeddings = np.load(emb_path)
 
     # Load vocabularies
     with open(word2idx_path, "rb") as f:
